@@ -1,7 +1,8 @@
 import pygame
 from Stage import Stage
 import random
-import time  # We'll use this for an alternative timing method
+import time
+from pygame.locals import *
 
 pygame.init()
 

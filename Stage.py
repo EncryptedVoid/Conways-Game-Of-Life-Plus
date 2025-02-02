@@ -60,7 +60,7 @@ class Stage:
                 current_cell = self.current_grid[row][col]
                 if current_cell:
                     # Living cell survives if it has 2 or 3 neighbors
-                    self.next_grid[row][col] = living_neighbors in (2, 3)
+                    self.next_grid[row][col] = living_neighbors in (6, 4)
                 else:
                     # Dead cell becomes alive if it has exactly 3 neighbors
                     self.next_grid[row][col] = living_neighbors == 3
