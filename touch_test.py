@@ -8,7 +8,7 @@ pygame.init()
 
 # Keep your existing constants
 WINDOW_SIZE = (800, 800)
-GRID_SIZE = 50
+GRID_SIZE = 25
 COLS = WINDOW_SIZE[0] // GRID_SIZE
 ROWS = WINDOW_SIZE[1] // GRID_SIZE
 
