@@ -24,9 +24,6 @@ PLAY_BUTTON = pygame.Rect(
     WINDOW_SIZE[0] // 2 - 50, WINDOW_SIZE[1] - BUTTON_HEIGHT, 100, 40
 )
 
-stage = Stage(ROWS, COLS)
-# Start with an empty grid instead of random
-stage.current_grid = stage.blank_grid()
 
 screen = pygame.display.set_mode(WINDOW_SIZE)
 clock = pygame.time.Clock()
