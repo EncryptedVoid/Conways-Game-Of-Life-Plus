@@ -174,31 +174,6 @@ class Menu:
         self.in_settings = False
         self.running = True
 
-    def handle_events(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                self.running = False
-
-            if self.in_settings:
-                # Handle settings menu events
-                if self.volume_slider.handle_event(event):
-                    print(f"Volume changed to: {self.volume_slider.value}")
-                if self.brightness_slider.handle_event(event):
-                    print(f"Brightness changed to: {self.brightness_slider.value}")
-
-                # Back button
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    self.in_settings = False
-            else:
-                # Handle main menu events
-                if self.start_button.handle_event(event):
-                    print("Starting game...")
-                    self.start_game()
-                elif self.settings_button.handle_event(event):
-                    self.in_settings = True
-                elif self.quit_button.handle_event(event):
-                    self.running = False
-
     def start_game(self):
         clock = pygame.time.Clock()
         last_generation_time = time.time()
@@ -269,6 +244,33 @@ class Menu:
             clock.tick(FRAME_RATE)
 
         return
+
+    def handle_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+
+            if self.in_settings:
+                # Handle settings menu events
+                if self.volume_slider.handle_event(event):
+                    print(f"Volume changed to: {self.volume_slider.value}")
+                if self.brightness_slider.handle_event(event):
+                    print(f"Brightness changed to: {self.brightness_slider.value}")
+
+                # Back button
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    self.in_settings = False
+            else:
+                # Handle main menu events
+                if self.start_button.handle_event(event):
+                    print("Starting game...")
+                    self.start_game()
+                elif self.settings_button.handle_event(event):
+                    print("Entering settings...")
+                    self.in_settings = True
+                elif self.quit_button.handle_event(event):
+                    print("Quitting game...")
+                    self.running = False
 
     def draw(self):
         self.screen.fill(BLACK)
